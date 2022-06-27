@@ -1570,10 +1570,16 @@ void main () {
 	ld b,3
    
    ._loop
-	call 0x4d
-	inc hl
-	inc a
+	push bc
+	ld b,0
+	._lop
+	 call 0x4d
+	 inc hl
+	 inc a
+	 djnz _lop
+	pop bc
 	djnz _loop
+	
 	
 	ld b,6
    ._loop2
